@@ -18,8 +18,10 @@ public class NumberOperations {
         nums.add(90f);
         nums.add(100.9f);
 
-        System.out.println("ArrayList: "+ nums);
-        System.out.println("the sum of");
+        System.out.println("Всі числа: "+ nums);
+        System.out.println("Сума всіх чисел: " + arrSum(nums));
+
+
     }
 
     public static float arrSum(ArrayList<Float> nums) {
