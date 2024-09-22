@@ -3,76 +3,73 @@ package numberoperations;
 import java.util.ArrayList;
 
 public class NumberOperations {
-
     public static void main(String[] arg) {
-        //треба попробувати перетворити в рядок, і потім конвертувати постійно
-        ArrayList<Float> nums = new ArrayList<>();
+        // Завдання 3 Створила новий об'єкт, який буде списком, Тип списку Number ГОТОВО
+        ArrayList<Number> arr = new ArrayList<>();
 
-        nums.add(10f, 20.5f, 30f, 40.7f, 50f, 60.3f, 70f, 80.1f, 90f, 100.9f);
+        // Завдання 1 Створити числа різних типів ГОТОВО
+        int a = 10, c = 30, e = 50, g = 70, i = 90;
+        float b = 20.5f, d = 40.7f, f = 60.3f, h = 80.1f, j = 100.9f;
 
-        nums.add(10f);
-        nums.add(20.5f);
-        nums.add(30f);
-        nums.add(40.7f);
-        nums.add(50f);
-        nums.add(60.3f);
-        nums.add(70f);
-        nums.add(80.1f);
-        nums.add(90f);
-        nums.add(100.9f);
+        // Завдання 2 Долучити їх до списку ГОТОВО
+        arr.add(a);
+        arr.add(b);
+        arr.add(c);
+        arr.add(d);
+        arr.add(e);
+        arr.add(f);
+        arr.add(g);
+        arr.add(h);
+        arr.add(i);
+        arr.add(j);
 
-        System.out.println("1. Всі числа: "+ nums);
-        System.out.println("2. Сума всіх чисел: " + arrSum(nums));
-//        System.out.println("3. Добуток перших п'яти елементів списка: " + productFifeArr(nums));
-        System.out.println("4. Середнє значення списка: "+ arrAvarage(nums));
-        System.out.println("5. Максимальне значення списка: "+ arrMax(nums));
-        System.out.println("6. ");
-    }
+        // Завдання 4 Вивести числа на екран ГОТОВО
+        System.out.println("4. Всі числа: " + arr);
 
-    public static float arrSum(ArrayList<Float> arr) {
-        float sum = 0;
-        for (float el : arr) {
-            sum += el;
+        //Завдання 5 Вивести числа у форматі цілих чисел
+        System.out.print("5. Вивід : ");
+        for (Number num: arr) {
+            System.out.print(num.intValue() + " ");
         }
-        return sum;
-    }
+        System.out.print("\n");
 
-//    public static float productFifeArr(ArrayList<Float> arr){
-//        float product = 1;
-//        for (int i = 0; i < 5; i++) {
-//
-//            product *= arr.get(i);
-//            System.out.print((i+1) + " - "+ product+ " | ");
-//        }
-//        System.out.print( "\nres - " + product);
-//        return product;
-//    }
+        //Завдання 6 Виведіть числа у форматі дробних чисел з 2ма знаками після коми (точки).
+        System.out.print("6. Вивід : ");
+        for (Number num: arr) {
+            String res = String.format("%.2f", num.floatValue());
+            System.out.print(res + " ");
+        }
+        System.out.print("\n");
 
-    public static float arrAvarage(ArrayList<Float> arr) {
-        float sum = arrSum(arr);
-        int arrSize = arr.size();
-        return sum/arrSize;
-    }
+//      Завдання 7 Придумайте та реалізуйте рішення, щоб зберігати числа в різних списках в залежності від їх типу.
+        ArrayList<Integer> intArr = new ArrayList<>();
+        ArrayList<Float> floatArr = new ArrayList<>();
 
-    public static float arrMax (ArrayList<Float> arr) {
-        float max = arr.getFirst();
-        float value;
-        for (float el : arr) {
-            value = el;
-            if (value > max) {
-                max = el;
+        for (Number num: arr) {
+            if (num instanceof Integer){
+                intArr.add(num.intValue());
+            }
+            else if (num instanceof Float) {
+                floatArr.add(num.floatValue());
             }
         }
-        return max;
+
+        // ну і вивела
+        System.out.println("7. Вивід :");
+        System.out.println("\tСписок цілих чисел :" + intArr);
+        System.out.println("\tСписок дробних чисел :" + floatArr);
+
+        // Викоання задвання варіанта 10
+        System.out.print("Варіант 10. Виконання формули: " + formule(arr));
+    }
+
+    //метод
+    public static ArrayList<Float> formule(ArrayList<Number> arr) {
+        ArrayList<Float> resArr = new ArrayList<>();
+        for (Number num: arr) {
+            Float res = (num.floatValue() + 10) / 2 ;
+            resArr.add(res);
+        }
+        return resArr;
     }
 }
-
-
-//    public static void printArrTwoDig(@org.jetbrains.annotations.NotNull ArrayList<Float> arr) {
-//        for (float el: arr) {
-//            String res = String.format("%.2f", el);
-//            System.out.print(res+ " ");
-//        }
-//
-//    }
-//}
